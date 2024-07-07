@@ -20,28 +20,32 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="hshhh">
-<meta property="og:url" content="http://example.com/index.html">
+  <meta name="description" content="引言 本文旨在梳理博弈论的相关知识，便于本人后续复习  巴什博弈经典巴什博弈 问题：有两个绝顶聪明的人在玩取石子游戏，假设最初有n个石子，每人可以轮流取1~m范围内的石子，如果没有石子可取就失败，问先手胜还是后手胜。  显然当(m+1)|n时为必败局面，因为每轮操作后手可以保证恰好取走m+1个 拓展 一、改为拿掉最后一颗棋子的失败    不难发现问题等价于取走倒数第二颗棋子的胜利，转化为经典巴什博">
+<meta property="og:type" content="article">
+<meta property="og:title" content="acm——博弈论">
+<meta property="og:url" content="http://example.com/2024/07/04/%E5%8D%9A%E5%BC%88%E8%AE%BA/index.html">
 <meta property="og:site_name" content="hshhh">
+<meta property="og:description" content="引言 本文旨在梳理博弈论的相关知识，便于本人后续复习  巴什博弈经典巴什博弈 问题：有两个绝顶聪明的人在玩取石子游戏，假设最初有n个石子，每人可以轮流取1~m范围内的石子，如果没有石子可取就失败，问先手胜还是后手胜。  显然当(m+1)|n时为必败局面，因为每轮操作后手可以保证恰好取走m+1个 拓展 一、改为拿掉最后一颗棋子的失败    不难发现问题等价于取走倒数第二颗棋子的胜利，转化为经典巴什博">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-07-04T05:19:20.000Z">
+<meta property="article:modified_time" content="2024-07-07T02:27:10.718Z">
 <meta property="article:author" content="hshhh">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/">
+<link rel="canonical" href="http://example.com/2024/07/04/%E5%8D%9A%E5%BC%88%E8%AE%BA/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>hshhh</title>
+  <title>acm——博弈论 | hshhh</title>
   
 
 
@@ -139,9 +143,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
@@ -157,10 +162,9 @@
       <meta itemprop="name" content="hshhh">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/07/04/%E5%8D%9A%E5%BC%88%E8%AE%BA/" class="post-title-link" itemprop="url">acm——博弈论</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          acm——博弈论
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -190,7 +194,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><blockquote>
+        <h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><blockquote>
 <p>本文旨在梳理博弈论的相关知识，便于本人后续复习</p>
 </blockquote>
 <h1 id="巴什博弈"><a href="#巴什博弈" class="headerlink" title="巴什博弈"></a>巴什博弈</h1><h2 id="经典巴什博弈"><a href="#经典巴什博弈" class="headerlink" title="经典巴什博弈"></a>经典巴什博弈</h2><blockquote>
@@ -273,276 +277,30 @@
 </blockquote>
 <p>结论：局面的SG 值为局面中每个正面朝上的棋子单一存在时的SG 值的异或和。即一个有k个硬币朝上，朝上硬币位置分布在的翻硬币游戏中，SG值是等于k个独立的开始时只有一个硬币朝上的翻硬币游戏的SG值异或和。比如THHTTH这个游戏中，2号、3号、6号位是朝上的，它等价于TH、TTH、TTTTTH三个游戏和，即sg[THHTTH]&#x3D;sg[TH]^sg[TTH]^sg[TTTTTH].我们的重点就可以放在单个硬币朝上时的SG值的求法。<br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/kuangbin/p/3218060.html">链接</a></p>
 
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/04/stl/">
+        
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="hshhh">
-      <meta itemprop="description" content="">
-    </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="hshhh">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/07/04/stl/" class="post-title-link" itemprop="url">modern cpp</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2024-07-04 11:24:07 / 修改时间：13:09:39" itemprop="dateCreated datePublished" datetime="2024-07-04T11:24:07+08:00">2024-07-04</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="cpp文档链接"><a href="#cpp文档链接" class="headerlink" title="cpp文档链接"></a>cpp文档链接</h1><p>这是一个链接 <a target="_blank" rel="noopener" href="https://www.apiref.com/cpp-zh/">cpp文档</a>  </p>
-<h1 id="stringstream"><a href="#stringstream" class="headerlink" title="stringstream"></a>stringstream</h1><ul>
-<li>可以使用stringstream实现字符串string类型和int，char， double等类型的转换  </li>
-<li>getline &amp;&amp; cin, 注意cin停在空白字符前</li>
-<li>auto可以用作返回类型，不可以用作形参</li>
-</ul>
-<p><strong>代码示例</strong></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sstream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">stringToInterger</span><span class="params">(<span class="type">const</span> string&amp; str)</span> </span>&#123;</span><br><span class="line">    <span class="function">istringstream <span class="title">iss</span><span class="params">(str)</span></span>;</span><br><span class="line">    <span class="type">int</span> ret;</span><br><span class="line">    iss&gt;&gt;ret;</span><br><span class="line">    <span class="keyword">if</span>(iss.<span class="built_in">fail</span>()) <span class="keyword">throw</span> std::<span class="built_in">domain_error</span>(<span class="string">&quot;no value int at beginning!&quot;</span>);</span><br><span class="line">    <span class="type">char</span> ch;</span><br><span class="line">    iss &gt;&gt; ch;</span><br><span class="line">    <span class="keyword">if</span>(!iss.<span class="built_in">fail</span>()) <span class="keyword">throw</span> std::<span class="built_in">domain_error</span>(<span class="string">&quot;more than a single valid int!&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">        string str;</span><br><span class="line">        cin &gt;&gt; str;</span><br><span class="line">        cout &lt;&lt; <span class="built_in">stringToInterger</span>(str) &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">checkbit</span><span class="params">(istringstream&amp; str)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="function">std::ostringstream <span class="title">oss</span><span class="params">(<span class="string">&quot;how to learn modern cpp&quot;</span>, stringstream::ate)</span></span>;</span><br><span class="line">    cout &lt;&lt; oss.<span class="built_in">str</span>() &lt;&lt; endl;</span><br><span class="line">    oss &lt;&lt; <span class="string">&quot;what is it?   &quot;</span>;<span class="comment">//覆盖cover,ate标志</span></span><br><span class="line">    cout &lt;&lt; oss.<span class="built_in">str</span>() &lt;&lt; endl;</span><br><span class="line">    oss &lt;&lt; <span class="number">16.9</span>;<span class="comment">//自动转换为string类型</span></span><br><span class="line">    cout &lt;&lt; oss.<span class="built_in">str</span>() &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    <span class="function">istringstream <span class="title">iss</span><span class="params">(<span class="string">&quot;16.9010086&quot;</span>)</span></span>;<span class="comment">//自动判断类型，读到空白字符</span></span><br><span class="line">    <span class="type">double</span> a;</span><br><span class="line">    <span class="type">int</span> b; </span><br><span class="line">    iss &gt;&gt; a &gt;&gt; b;</span><br><span class="line">    cout &lt;&lt; a &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; b &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; iss.<span class="built_in">str</span>() &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">auto</span> i = <span class="number">5</span>;</span><br><span class="line">    <span class="built_in">test</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">endl == &#x27;\n&#x27; + flush</span></span><br><span class="line"><span class="comment">cout cerr is ostringstream</span></span><br><span class="line"><span class="comment">cin will use flush </span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">while fail bit or eof bit is on, the next cin operator will be frozen</span></span><br><span class="line"><span class="comment">getline(cin, name) is better than cin &gt;&gt; name</span></span><br><span class="line"><span class="comment">use getline and cin, 注意cin停在空白字符前</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">for(size_t i; i &lt; str.size(); ++i) size_t == unsigned ..</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> using ittera ...</span></span><br><span class="line"><span class="comment">auto </span></span><br><span class="line"><span class="comment">1、c string / cpp string</span></span><br><span class="line"><span class="comment">2、auto可以用作返回类型，不可以用作形参</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-<h1 id="stl"><a href="#stl" class="headerlink" title="stl"></a>stl</h1><ul>
-<li>Sequence Containers<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;T&gt;, deque&lt;T&gt;</span><br></pre></td></tr></table></figure></li>
-<li>Container Adaptors<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stack&lt;T&gt;, queue&lt;T&gt;</span><br></pre></td></tr></table></figure></li>
-<li>Associative Containers<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">map&lt;T1, T2&gt;, sets&lt;T&gt;, unordered_map&lt;T1, T2&gt;, unordered_set&lt;T&gt;;</span><br></pre></td></tr></table></figure></li>
-<li>Iterators（迭代器）<ul>
-<li>非线性容器用线性迭代</li>
-<li>输出值用<code>*</code>解引用</li>
-<li><code>++iter</code>操作</li>
-</ul>
-</li>
-</ul>
-
-      
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2024/07/04/stl/" rel="prev" title="modern cpp">
+      <i class="fa fa-chevron-left"></i> modern cpp
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/03/hello%20Markdwon/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="hshhh">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="hshhh">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/07/03/hello%20Markdwon/" class="post-title-link" itemprop="url">Hello Markdown</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2024-07-03 19:49:31 / 修改时间：21:40:25" itemprop="dateCreated datePublished" datetime="2024-07-03T19:49:31+08:00">2024-07-03</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Hello-Markdown"><a href="#Hello-Markdown" class="headerlink" title="Hello Markdown"></a>Hello Markdown</h1><h1 id="标题语法"><a href="#标题语法" class="headerlink" title="标题语法"></a>标题语法</h1><h1 id="level-1"><a href="#level-1" class="headerlink" title="level 1"></a>level 1</h1><h1 id="also-level-1"><a href="#also-level-1" class="headerlink" title="also level 1"></a>also level 1</h1><h2 id="level-2"><a href="#level-2" class="headerlink" title="level 2"></a>level 2</h2><h2 id="also-level-2"><a href="#also-level-2" class="headerlink" title="also level 2"></a>also level 2</h2><h3 id="level3"><a href="#level3" class="headerlink" title="level3"></a>level3</h3><h4 id="level4"><a href="#level4" class="headerlink" title="level4"></a>level4</h4><h1 id="段落语法"><a href="#段落语法" class="headerlink" title="段落语法"></a>段落语法</h1><p>I really like using Markdown.</p>
-<p>I think I’ll use it to format all of my documents from now on</p>
-<p>I really like using Markdown.<br>I think I’ll use it to format all of my documents from now on</p>
-<p>不要用空格（spaces）或制表符（ tabs）缩进段落，空一行即可</p>
-<h1 id="换行语法"><a href="#换行语法" class="headerlink" title="换行语法"></a>换行语法</h1><p>在一行的末尾加两个或以上空格<br>就像这样<br>hhh<br><br>也可以在末尾加“&lt; br &gt;”来换行  </p>
-<h1 id="强调语法"><a href="#强调语法" class="headerlink" title="强调语法"></a>强调语法</h1><h2 id="1、粗体"><a href="#1、粗体" class="headerlink" title="1、粗体"></a>1、粗体</h2><p>在加粗文本前后各加两个”*”或加下划线<br><br>ex : <strong>bold text</strong><br><br><strong>bold text</strong><br><br>Markdown 应用程序在如何处理单词或短语中间的下划线上并不一致。为兼容考虑，在单词或短语中间部分加粗的话，请使用星号（asterisks）。</p>
-<h2 id="2、斜体"><a href="#2、斜体" class="headerlink" title="2、斜体"></a>2、斜体</h2><p>要用斜体显示文本，请在单词或短语前后添加一个星号（asterisk）或下划线（underscore）。<br><br>ex: <em>hh</em><br><em><strong>hh</strong></em></p>
-<h1 id="引用语法"><a href="#引用语法" class="headerlink" title="引用语法"></a>引用语法</h1><p>要创建块引用，请在段落前添加一个 &gt; 符号。<br>ex:  </p>
-<blockquote>
-<p>this is quoto</p>
-<p>like this</p>
-</blockquote>
-<p>嵌套块引用</p>
-<blockquote>
-<h3 id="title-level-3"><a href="#title-level-3" class="headerlink" title="title level 3"></a>title level 3</h3><ul>
-<li>point one<blockquote>
-<p>2244<br><em>good <strong>hh</strong></em></p>
-</blockquote>
-</li>
-</ul>
-</blockquote>
-<h1 id="列表语法"><a href="#列表语法" class="headerlink" title="列表语法"></a>列表语法</h1><p>要创建有序列表，请在每个列表项前添加数字并紧跟一个英文句点。数字不必按数学顺序排列，但是列表应当以数字 1 起始。  </p>
-<ol>
-<li>First item</li>
-<li>Second item</li>
-<li>Third item</li>
-<li>Fourth item<ol>
-<li>First item</li>
-<li>Second item</li>
-<li>Third item</li>
-</ol>
-</li>
-<li>Fourth item <br></li>
-</ol>
-<ul>
-<li>First item<ul>
-<li>Second item</li>
-<li>Third item</li>
-</ul>
-</li>
-<li>Fourth item</li>
-</ul>
-<h1 id="代码语法"><a href="#代码语法" class="headerlink" title="代码语法"></a>代码语法</h1><p>要将单词或短语表示为代码，请将其包裹在反引号 <code>code</code><br><code>转义```反引号</code></p>
-<h1 id="分割线语法"><a href="#分割线语法" class="headerlink" title="分割线语法"></a>分割线语法</h1><p>前后要加空白行</p>
-<hr>
-<hr>
-<hr>
-<h1 id="链接语法"><a href="#链接语法" class="headerlink" title="链接语法"></a>链接语法</h1><p>链接文本放在中括号内，链接地址放在后面的括号中，链接title可选。<br>这是一个链接 <a target="_blank" rel="noopener" href="https://markdown.com.cn/editor/">在线编辑器</a>  </p>
-<p>使用尖括号可以很方便地把URL或者email地址变成可点击的链接。<br><a target="_blank" rel="noopener" href="https://hshhhhhhhhh.github.io/">https://hshhhhhhhhh.github.io</a></p>
-<p><strong>强调</strong> 链接, 在链接语法前后增加星号。 要将链接表示为代码，请在方括号中添加反引号。<br>这是一个链接 <em><a target="_blank" rel="noopener" href="https://markdown.com.cn/editor/"><code>在线编辑器</code></a></em></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/03/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="hshhh">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="hshhh">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/07/03/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2024-07-03 19:01:38" itemprop="dateCreated datePublished" datetime="2024-07-03T19:01:38+08:00">2024-07-03</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
   
 
 
@@ -595,6 +353,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BC%95%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B7%B4%E4%BB%80%E5%8D%9A%E5%BC%88"><span class="nav-number">2.</span> <span class="nav-text">巴什博弈</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%8F%E5%85%B8%E5%B7%B4%E4%BB%80%E5%8D%9A%E5%BC%88"><span class="nav-number">2.1.</span> <span class="nav-text">经典巴什博弈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8B%93%E5%B1%95"><span class="nav-number">2.2.</span> <span class="nav-text">拓展</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Nim%E5%8D%9A%E5%BC%88"><span class="nav-number">3.</span> <span class="nav-text">Nim博弈</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%99%AE%E9%80%9ANim%E5%8D%9A%E5%BC%88"><span class="nav-number">3.1.</span> <span class="nav-text">普通Nim博弈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#anti-Nim%E5%8D%9A%E5%BC%88"><span class="nav-number">3.2.</span> <span class="nav-text">anti-Nim博弈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nim-k%E5%8D%9A%E5%BC%88"><span class="nav-number">3.3.</span> <span class="nav-text">Nim-k博弈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nim-m%E5%8D%9A%E5%BC%88"><span class="nav-number">3.4.</span> <span class="nav-text">Nim-m博弈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SG%E5%87%BD%E6%95%B0"><span class="nav-number">3.5.</span> <span class="nav-text">SG函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A1%A5%E5%85%85%EF%BC%8C%E9%98%B6%E6%A2%AF%E5%8D%9A%E5%BC%88"><span class="nav-number">3.6.</span> <span class="nav-text">补充，阶梯博弈</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A8%81%E4%BD%90%E5%A4%AB%E5%8D%9A%E5%BC%88-Wythoff"><span class="nav-number">4.</span> <span class="nav-text">威佐夫博弈(Wythoff)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Beatty%E5%AE%9A%E7%90%86"><span class="nav-number">4.1.</span> <span class="nav-text">Beatty定理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E5%8D%9A%E5%BC%88"><span class="nav-number">5.</span> <span class="nav-text">斐波那契博弈</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E5%8D%9A%E5%BC%88"><span class="nav-number">6.</span> <span class="nav-text">其他博弈</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BF%BB%E8%BD%AC%E7%A1%AC%E5%B8%81%E5%8D%9A%E5%BC%88"><span class="nav-number">6.1.</span> <span class="nav-text">翻转硬币博弈</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
